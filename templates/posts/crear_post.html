@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load colaborador_tags %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+<title>{ block title }Crer Posts/Editar Posts{% endblock %}</title>
+
+{% block contenido %}
+<center>
+{% if user.is_superuser or request.user|has_group:"Colaborador1"  %}
+<div class="container-py-5" style="margin: 200px;">
+    <div class="container-fluid" style="margin-top: 300px;">
+        <a id="boton_post" href="{% url 'apps.posts:crear_categoria' %}">Crear nueva categoría</a>                                        
+    </div>
+
+    <h1>Crear Post</h1>
+    <form method="POST" enctype="multipart/form-data" id="crear_post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Guardar</button>                                          
+    </form>
+</div>
+
+
+{% else %}
+    <div class="container-fluid" style="margin: 300px; text-align: justify;">
+    </center>
+        <h1>Solo usuarios con permisos pueden acceder a esta página</h1>
+    </center>
+    </div>
+{% endif %}
+{% endblock %}

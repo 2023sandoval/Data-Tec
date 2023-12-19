@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+<center>
+<title>{% block title %} Registro de usuario {% endblock title %}</title>
+{% block contenido %}
+
+<center>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-link">
+                        <div class="blog-top clearfix">
+                            <form method="POST" enctype="multipart/form-data" style="margin-top: 300px; margin-bottom: 100px;">
+                                <h1><strong>Registro de usuarios</strong></h1>
+                                <br>
+                                <h5><strong>Gracias por registrarte con nosotros.
+                                  </strong></h5>
+                                  <h5><strong> A continuación te pedimos por favor, que completes el formulario.</strong></h5>
+                                  <h5><strong>Muchas Gracias.</strong></h5>
+                                <div class="messages">
+                                    {% for message in messages %}
+                                        <table{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</table>
+                                    {% endfor %}                                        
+                                </div>
+                                <br>
+                                {% csrf_token %}
+                                <div class="container">
+                                    <table> {{ form }}</table>                                     
+                                </div>                    
+                                <br><br>
+                                <button type="submit" class="btn btn-success btn-lg px-3">Registrar</button> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</center>
+</center>
+{% endblock %}

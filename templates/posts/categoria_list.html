@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<center>
+    <section class="section">
+        <div class="container">
+            <div class="">
+                <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-link">
+                        <div class="blog-top clearfix">
+                            <div class="container-fluid" style="margin: 200px;">
+                                <h1>Lista de Categorías</h1>
+                                <br>
+                                <ul>
+                                     {% for categoria in categorias %}
+                                        <li>{{ categoria.nombre }}
+                                            (<a style="color: black;"
+                                                href="{% url 'apps.posts:categoria_delete' pk=categoria.pk %}">Eliminar</a>)
+                                        </li>
+                                    {% empty %}
+                                        <li>No hay categorías</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</center>
+{% endblock %}

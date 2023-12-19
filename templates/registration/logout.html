@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<center>
+
+<div class="container" style="margin-top: 370px;">
+{% if messages %}
+    <div class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags}}"{% endif %}>{{ message }}</li>                                          
+        {% endfor %}
+    </div>
+{% endif %}
+</div>
+</center>
+{% endblock %}

@@ -1,0 +1,460 @@
+{% load static %}
+{% load colaborador_tags %}
+
+
+<!DOCTYPE html>
+    <!-- Mayor Profesionalidad al estar en Español --> 
+<html lang="es-ar">
+
+<head>
+    <!-- Fondo hecho con Corel X3 -->
+    <style>
+        body {
+            background-image: url('{% static "upload/333.jpg" %}');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+    <!-- Basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Nombre pensado hasta el cansancio -->
+    <title>Data-TEC</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <!-- Favicon con Diseño Personalizado -->
+    <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
+
+    
+    <!-- Design fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet"> 
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+    <!-- FontAwesome Icons core CSS -->
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'style.css' %}" rel="stylesheet">
+
+    <!-- Responsive styles for this template -->
+    <link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+
+    <!-- Colors for this template -->
+    <link href="{% static 'css/colors.css' %}" rel="stylesheet">
+
+    <!-- Version Tech CSS for this template -->
+    <link href="{% static 'css/version/tech.css' %}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    
+     <!--Comienza el Navbar (Calculo jej)-->
+
+    <div id="background-image">
+        <header class="tech-header header">
+            <div class="container-fluid">
+                <nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
+                    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <a class="navbar-brand" href="{% url 'index' %}"><img src="{% static 'images/version/data-logo.png' %}" alt=""></a>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                        <ul class="navbar-nav row  mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'index' %}">Inicio</a>
+                            </li>
+                            <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Posteos</a>
+                                <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
+                                    <li>
+                                        <div class="container">
+                                            <div class="mega-menu-content clearfix">
+                                                <div class="tab">
+                                                    <button class="tablinks" onclick="openCategory(event, 'cat01')"><a>Todas las novedades</a></button>
+                                                    <button class="tablinks" onclick="openCategory(event, 'cat02')"><a>Tecnología Blanda</a></button>
+                                                    <button class="tablinks" onclick="openCategory(event, 'cat03')"><a>Tecnología Dura</a></button>
+                                                </div>
+
+                                                <div class="tab-details clearfix">
+                                                    <div id="cat01" class="tabcontent active">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts' %}" title="">
+                                                                            <img src="{% static 'upload/gem.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Blanda</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">Cómo probar Gemini, la nueva IA de Google,desde tu móvil</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts' %}" title="">
+                                                                            <img src="{% static 'upload/tt.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Blanda</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">El nuevo Tiempo de Google sale del Pixel para llegar a los Samsung</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts' %}" title="">
+                                                                            <img src="{% static 'upload/tc.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Dura</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta"><h4><a href="#" title="">Esta tecnología cuántica va a cambiarlo todo y ya ha llegado</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts' %}" title="">
+                                                                            <img src="{% static 'upload/mm.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Dura</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a href="{% static 'upload/michi.jpg' %}" title="">Trust Verto, un ratón vertical con un diseño muy cuidado</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+                                                        </div><!-- end row -->
+                                                    </div>
+                                                    <div id="cat02" class="tabcontent">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts' %}" title="">
+                                                                            <img src="{% static 'upload/kl.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Blanda</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a title="">El dinero que Google gana por cada aplicación que descargas en tu móvil</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts}" title="">
+                                                                            <img src="{% static 'upload/cv.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Blanda</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">Instagram Threads: confirmada la fecha de lanzamiento de la red social de Meta en Europa</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts}" title="">
+                                                                            <img src="{% static 'upload/ex.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Blanda</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">La última idea de Elon Musk, convertir X en una app para ligar</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts}" title="">
+                                                                            <img src="{% static 'upload/CAT.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Blanda</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">La Policía Nacional alerta sobre dos nuevos tipos de ciberataques, ¿En qué consisten y cómo puedes evitarlos?</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+                                                        </div><!-- end row -->
+                                                    </div>
+                                                    <div id="cat03" class="tabcontent">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts}" title="">
+                                                                            <img src="{% static 'upload/oo.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Dura</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">Adiós iPhone: el móvil de Nokia que fue coronado como el mejor invento de 2023</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts}" title="">
+                                                                            <img src="{% static 'upload/sm.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Dura</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">Samsung Galaxy Fit 3, filtraron las primeras imágenes</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts}" title="">
+                                                                            <img src="{% static 'upload/ll.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Dura</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">Lío con el OnePlus 12, usuarios en Weibo se están quejando de defectos y OnePlus responde</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a href="{% url 'apps.posts:posts}" title="">
+                                                                            <img src="{% static 'upload/aat.png' %}" alt="" class="img-fluid">
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat">Tecnología Dura</span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title="">Xiaomi Pad 5 ¿el renacer de las tablets con Android?</a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+                                                        </div><!-- end row -->
+                                                    </div>
+                                                </div><!-- end tab-details -->
+                                            </div><!-- end mega-menu-content -->
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'acerca'%}">Acerca de</a>
+                            </li>
+                        
+                            <li class="nav-item dropdown has-submenu menu-large hidden-md-down hidden-sm-down hidden-xs-down">
+                                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Opciones</a>
+                                <ul class="dropdown-menu megamenu" aria-labelledby="dropdown01">
+                                <li>
+                                    <div class="container">
+                                        <div class="mega-menu-content clearfix">
+                                            <div class="tab">
+                                                <button class="tablinks" onclick="openCategory(event, 'cat01')"><a>{{ user.username }}: Usuario Activo</a></button>
+                                                <button class="tablinks" onclick="openCategory(event, 'cat02')"><a href="{% url 'apps.posts:categoria_list' %}">Lista de Categorías</a></button>
+                                                <button class="tablinks" onclick="openCategory(event, 'cat03')"><a href="{% url 'apps.usuario:login' %}">Login</a></button>
+                                                <button class="tablinks" onclick="openCategory(event, 'cat04')"><a href="{% url 'apps.usuario:registrar' %}">Registro</a></button>
+                                                
+                                                
+                                                <div class="tab-details clearfix">
+                                                    <div id="cat01" class="tabcontent active">
+                                                        <div class="row">
+                                                            <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                                <div class="blog-box">
+                                                                    <div class="post-media">
+                                                                        <a title="">                                               
+                                                                            <div class="hovereffect">
+                                                                            </div><!-- end hover -->
+                                                                            <span class="menucat"></span>
+                                                                        </a>
+                                                                    </div><!-- end media -->
+                                                                    <div class="blog-meta">
+                                                                        <h4><a  title=""></a></h4>
+                                                                    </div><!-- end meta -->
+                                                                </div><!-- end blog-box -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                                <div id="cat02" class="text-capitalize">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="blog-box">
+                                                                <div class="post-media">
+                                                                    <a href="#" title="">
+                                                                        <div class="hovereffect">
+                                                                        </div><!-- end hover -->
+                                                                    </a>
+                                                                </div><!-- end media -->
+                                                                </div><!-- end meta -->
+                                                            </div><!-- end blog-box -->
+                                                        </div>
+                                                <div id="cat03" class="tabcontent">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="blog-box">
+                                                                <div class="post-media">
+                                                                    <a href="#" title="">
+                                                                        <div class="hovereffect">
+                                                                        </div><!-- end hover -->
+                                                                    </a>
+                                                                </div><!-- end media -->
+                                                                <div class="blog-meta">
+                                                                
+                                                                </div><!-- end meta -->
+                                                            </div><!-- end blog-box -->
+                                                        </div>
+                                                        
+                                                </div>
+
+                                                <div id="cat04" class="tabcontent">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+                                                            <div class="blog-box">
+                                                                <div class="post-media">
+                                                                    <a href="#" title="">
+                                                                        <div class="hovereffect">
+                                                                        </div><!-- end hover -->
+                                                                    </a>
+                                                                </div><!-- end media -->
+                                                                <div class="blog-meta">
+                                                                
+                                                                </div><!-- end meta -->
+                                                            </div><!-- end blog-box -->
+                                                        </div>
+                                                    
+                                                        
+                                                </div>
+                                </li>
+                        </ul>
+                        </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'apps.contacto:contacto' %}">Contáctanos</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+        </header><!-- end market-header -->
+
+        {% block contenido %}
+
+        {% endblock %}
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="widget">
+                            <div class="footer-text text-left ">
+                                <a href="{% url 'index' %}"><img src="{% static 'images/version/data-footer-logo.png' %}" alt="" class="img-fluid"></a>
+                                <p>Somos el blog de informática numero 1° en el Chaco y en tu corazón.</p>
+
+                                
+                            </div><!-- end footer-text -->
+                        </div><!-- end widget -->
+                    </div><!-- end col -->
+
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <h2 class="widget-title">Proyecto Final Etapa 2</h2>
+                        </div><!-- end widget -->
+                    </div>
+
+                    <div class="row col-lg-2 col-md-12 col-sm-12 col-xs-12">
+                        <div class="widget">
+                            <h2 class="widget-title">Copyright - Your Website</h2>
+                           
+                        </div><!-- end widget -->
+                    </div><!-- end col -->
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <br>
+                        <div class="copyright">&copy; Group Nine - Commission Two. Design: <a href="http://html.design">HTML Design</a>.</div>
+                    </div>
+                </div>
+            </div><!-- end container -->
+        </footer><!-- end footer -->
+
+        <div class="dmtop">Scroll to Top</div>       
+        
+    </div><!-- end wrapper -->
+
+    <!-- Core JavaScript
+    ================================================== -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/tether.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/custom.js' %}"></script>
+    {% if messages %}
+        {% for i in messages %}
+            <script>
+                Swal.fire({
+                   'title' : 'Felicitaciones',
+                   'text' : '({i})',
+                   'icon' : 'success'
+               })
+            </script>
+        {% endfor %}
+    {% endif %}
+    {{ messages|join:", "}}
+    
+
+</body>
+</html>

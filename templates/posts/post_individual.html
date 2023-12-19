@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load colaborador_tags %}
+
+{% block contenido %}
+<center>
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-11 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-wrapper">
+                        <div class="container" style="margin: 50px;">
+                            <h1>{{ posts.titulo }}</h1>
+                            <li>{{ posts.titulo }}</li> 
+                            <li>{{ posts.subtitulo }}</li> 
+                            <li>{{ posts.categoria }}</li>
+                            <br>
+                            <li><strong>{{ posts.texto }}</strong></li> 
+                            {% if posts.imagen %}
+                                <img src="{{ posts.imagen.url }}" alt="">
+                            {% else %}
+                                <p>No hay imagen disponible</p>
+                            {% endif %}
+                            {% if user.is_superuser or request.user|has_group:"Colaborador1" %}
+                                <div class="container-fluid" style="margin-top: 300px;">
+                                    <a id="boton_post" href="{% url 'apps.posts:post_update' pk=posts.id %}">Modificar Post</a> 
+                                </div>
+                                <div class="container-fluid" style="margin-top: 300px;">
+                                   <a id="boton_post" href="{% url 'apps.posts:post_delete' pk=posts.pk %}">Eliminar Post</a> 
+                                </div>
+
+                            {% endif %}
+                       
+
+<div class="widget" style="float: right;">
+    <h2 class="widget-title">Lo más visto</h2>
+    <div class="blog-list-widget">
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action flex-column align-items-start"
+            href="{% url 'apps.posts:posts' %}">
+                <div class="w-100 justify-content-between">
+                    <img src="{% static 'upload/ee.jpg' %}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">Elon Musk presenta la nueva versión de..</h5>
+                    <small>13 Diciembre, 2023</small>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start"
+            href="{% url 'apps.posts:posts' %}">
+                <div class="w-100 justify-content-between">
+                    <img src="{% static 'upload/lol.jpg' %}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">League of Legends regalará dos ..</h5>
+                    <small>12 Diciembre, 2023</small>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start"
+            href="{% url 'apps.posts:posts' %}">
+                <div class="w-100 last-item justify-content-between">
+                    <img src="{% static 'upload/bb.jpg' %}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">Bill Gates es uno de los mayores terratenientes de..</h5>
+                    <small>1 Diciembre 2023</small>
+                </div>
+            </a>
+        </div>
+    </div><!-- end blog-list -->
+</div><!-- end widget -->
+
+<div class="widget" style="float: right;">
+<h2 class="widget-title">Publicaciones Recomendadas</h2>
+    <div class="blog-list-widget">
+        <div class="list-group">
+            <a class="list-group-item list-group-item-action
+             flex-column align-items-start" href="{% url 'apps.posts:posts' %}">
+                <div class="w-100 justify-content-between">
+                    <img src="{% static 'upload/fff.jpg' %}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">El reactor de fusión nuclear JET ya no es el más..</h5>
+                    <span class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </span>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start"
+            href="{% url 'apps.posts:posts' %}" >
+                <div class="w-100 justify-content-between">
+                    <img src="{% static 'upload/zzzz.jpg' %}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">Apple ya está pensando en dispositivos..</h5>
+                    <span class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </span>
+                </div>
+            </a>
+            <a class="list-group-item list-group-item-action flex-column align-items-start" 
+            href="{% url 'apps.posts:posts' %}">
+                <div class="w-100 last-item justify-content-between">
+                    <img src="{% static 'upload/cc.jpg' %}" alt="" class="img-fluid float-left">
+                    <h5 class="mb-1">La gran sala retro: este hombre se ha hecho su propio..</h5>
+                    <span class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </span>
+                </div>
+            </a>
+        </div>
+    </div><!-- end blog-list -->
+</div><!-- end widget -->
+</div>
+<!-- 
+ Aqui seguirán estando los comentarios , pero se los separa en otro template
+ y se lo incluye con este -->
+     
+                </div><!-- end page-wrapper -->
+                </div><!-- end col -->
+            </div><!-- end row -->
+        </div><!-- end container -->
+    </section>
+
+ 
+    <section class="section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <div class="page-link">
+                        <div class="blog-top clearfix">
+
+     {% include 'comentario/crear_comentario.html' %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+                        
+
+    
+
+</center>
+{% endblock %}
+
+

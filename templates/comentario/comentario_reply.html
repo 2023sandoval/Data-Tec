@@ -1,0 +1,7 @@
+<h1>Responder al comentario</h1>
+
+<form method="post" action="{% url 'comentario_reply' comentario.id %}">
+  {% csrf_token %}
+  <textarea name="content"></textarea>
+  <button type="submit">Responder</button>
+</form>
